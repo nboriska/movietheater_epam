@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+    <context:property-placeholder location="classpath*:/auditorium.properties"/>
+
+    <util:list id="auditorium" scope="singleton">
+        <bean class="com.epam.barysenka.springcourse.domain.Auditorium">
+            <property name="auditoriumName" value="${auditorium1.name}"/>
+            <property name="numberOfSeats" value="${auditorium1.numberOfSeats}"/>
+            <property name="vipSeats" value="${auditorium1.vipSeats}"/>
+        </bean>
+        <bean class="com.epam.barysenka.springcourse.domain.Auditorium">
+            <property name="auditoriumName" value="${auditorium2.name}"/>
+            <property name="numberOfSeats" value="${auditorium2.numberOfSeats}"/>
+            <property name="vipSeats" value="${auditorium2.vipSeats}"/>
+        </bean>
+        <bean class="com.epam.barysenka.springcourse.domain.Auditorium">
+            <property name="auditoriumName" value="${auditorium3.name}"/>
+            <property name="numberOfSeats" value="${auditorium3.numberOfSeats}"/>
+            <property name="vipSeats" value="${auditorium3.vipSeats}"/>
+        </bean>
+        <bean class="com.epam.barysenka.springcourse.domain.Auditorium">
+            <property name="auditoriumName" value="${auditorium4.name}"/>
+            <property name="numberOfSeats" value="${auditorium4.numberOfSeats}"/>
+            <property name="vipSeats" value="${auditorium4.vipSeats}"/>
+        </bean>
+    </util:list>
+
+</beans>

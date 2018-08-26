@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:property-placeholder location="classpath*:/auditorium.properties"/>
+
+    <util:set id="auditoriumSet" scope="singleton">
+        <bean id="auditorium1" class="com.epam.barysenka.springcourse.domain.Auditorium"
+              p:auditoriumName="${auditorium1.name}"
+              p:numberOfSeats="${auditorium1.numberOfSeats}"
+              p:vipSeatsAsString="${auditorium1.vipSeats}" />
+        <bean id="auditorium2" class="com.epam.barysenka.springcourse.domain.Auditorium"
+              p:auditoriumName="${auditorium2.name}"
+              p:numberOfSeats="${auditorium2.numberOfSeats}"
+              p:vipSeatsAsString="${auditorium2.vipSeats}" />
+        <bean id="auditorium3" class="com.epam.barysenka.springcourse.domain.Auditorium"
+              p:auditoriumName="${auditorium3.name}"
+              p:numberOfSeats="${auditorium3.numberOfSeats}"
+              p:vipSeatsAsString="${auditorium3.vipSeats}" />
+        <bean id="auditorium4" class="com.epam.barysenka.springcourse.domain.Auditorium"
+              p:auditoriumName="${auditorium4.name}"
+              p:numberOfSeats="${auditorium4.numberOfSeats}"
+              p:vipSeatsAsString="${auditorium4.vipSeats}" />
+    </util:set>
+
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/context
+ 		http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="auditorium.xml"/>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="springcourse"/>
+
+    <!-- User -->
+    <bean id="userService" class="com.epam.barysenka.springcourse.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <bean id="userDAO" class="com.epam.barysenka.springcourse.dao.impl.UserDAOImpl" init-method="initialize"/>
+    <!-- /User -->
+
+    <!-- Auditorium -->
+    <bean id="auditoriumService" class="com.epam.barysenka.springcourse.service.impl.AuditoriumServiceImpl">
+        <property name="auditoriumDAO" ref="auditoriumDAO"/>
+    </bean>
+    <bean id="auditoriumDAO" class="com.epam.barysenka.springcourse.dao.impl.AuditoriumDAOImpl">
+        <property name="auditoriumSet" ref="auditoriumSet"/>
+    </bean>
+    <!-- /Auditorium -->
+
+    <!-- Event -->
+    <bean id="eventService" class="com.epam.barysenka.springcourse.service.impl.EventServiceImpl">
+        <property name="eventDAO" ref="eventDAO"/>
+    </bean>
+    <bean id="eventDAO" class="com.epam.barysenka.springcourse.dao.impl.EventDAOImpl" init-method="initialize"/>
+    <!-- /Event -->
+
+    <!-- Booking -->
+    <bean id="bookingService" class="com.epam.barysenka.springcourse.service.impl.BookingServiceImpl">
+        <property name="bookingDAO" ref="bookingDAO"/>
+    </bean>
+    <bean id="bookingDAO" class="com.epam.barysenka.springcourse.dao.impl.BookingDAOImpl"/>
+    <!-- /Event -->
+
+</beans>
